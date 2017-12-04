@@ -3,3 +3,9 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', notes_path %>
+
+<% if current_user.needs_engagement? %>
+  <%= link_to 'You Must Register!', new_user_registration_path %>
+<% else %>
+  <% render 'form' %>
+<% end %>
