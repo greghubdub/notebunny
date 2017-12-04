@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :notes, dependent: :destroy
-  
+
+  def soft_user?
+    self.email.empty?
+  end
+
 end
