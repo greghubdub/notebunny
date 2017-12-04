@@ -24,7 +24,12 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
+    @user = current_user
     @note = Note.new(note_params)
+
+    if @user.soft_user?
+      @note.soft_token = @user.soft_token
+    end
 
     respond_to do |format|
       if @note.save
