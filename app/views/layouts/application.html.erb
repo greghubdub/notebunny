@@ -9,6 +9,7 @@
 <body>
 
 <%= yield %>
+<%= current_user.soft_user? %>
 <%= current_user.inspect %>
 
 </body>
